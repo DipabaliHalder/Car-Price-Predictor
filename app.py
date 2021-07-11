@@ -1,43 +1,33 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
+import pandas as pd
 import pickle
+
 
 pipe=pickle.load(open('pipe.pkl','rb'))
 
-st.header('CAR-PRICE-PREDICTOR')
+st.header('Car Price Predictor')
 
-#year
-year = st.number_input('Year Of Manufacture(2000-2020)',2000,2020)
-
-#fuel
+# year
+year = st.number_input('Year Of Manufacture',2000,2020)
+# km driven
+km_driven=st.number_input('KMs driven')
+# fuel
 fuel = st.selectbox('Fuel Type',('Diesel', 'Petrol'))
-
-#transmission
+# seller type
+seller_type = st.selectbox('Seller Type',('Individual', 'Dealer'))
+# transmission
 transmmn = st.selectbox('Transmission',('Manual', 'Automatic'))
-
-# mileage
+# owner
+owner = st.selectbox('Owner',('First Owner', 'Second Owner', 'Third Owner'))# mileage
 mileage = st.number_input('Mileage')
-
 # engine
 engine = st.number_input('Engine', 0)
-
-#km_driven
-kms = st.number_input('KMs Driven')
-
-#seller_type
-seller_type = st.selectbox('Seller Type',('Individual', 'Dealer'))
-
-#owner
-owner = st.selectbox('Owner',('First Owner', 'Second Owner', 'Third Owner'))
-
-# max_power
-max_power = st.number_input('Max Power')
-
+# max power
+max_power=st.number_input('Max Power')
 # seats
 seats = st.number_input('Seats', 0, 14)
-
-#brand
+# brand
 brand = st.selectbox('Brand',(np.sort(['Maruti', 'Honda', 'Hyundai', 'Toyota', 'Ford', 'Renault', 'Mahindra', 'Tata', 'Chevrolet', 'Volkswagen'])))
 
 #predicted price
