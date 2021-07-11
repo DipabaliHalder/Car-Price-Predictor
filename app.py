@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import pickle
 
-
 pipe=pickle.load(open('pipe.pkl','rb'))
 
 st.header('Car Price Predictor')
