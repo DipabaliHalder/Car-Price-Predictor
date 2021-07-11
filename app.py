@@ -5,7 +5,7 @@ import pickle
 
 pipe=pickle.load(open('pipe.pkl','rb'))
 
-st.header('Car Price Predictor')
+st.title('Car-Price-Predictor')
 
 # year
 year = st.number_input('Year Of Manufacture',2000,2020)
