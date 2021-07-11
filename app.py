@@ -18,7 +18,8 @@ seller_type = st.selectbox('Seller Type',('Individual', 'Dealer'))
 # transmission
 transmmn = st.selectbox('Transmission',('Manual', 'Automatic'))
 # owner
-owner = st.selectbox('Owner',('First Owner', 'Second Owner', 'Third Owner'))# mileage
+owner = st.selectbox('Owner',('First Owner', 'Second Owner', 'Third Owner'))
+# mileage
 mileage = st.number_input('Mileage')
 # engine
 engine = st.number_input('Engine', 0)
@@ -32,7 +33,7 @@ brand = st.selectbox('Brand',(np.sort(['Maruti', 'Honda', 'Hyundai', 'Toyota', '
 #predicted price
 if st.button('Predict Price'):
     #form a numpy array(1,11)
-    input = np.array([[year, kms, fuel, seller_type, transmmn, owner, mileage, engine, max_power, seats, brand]])
+    input = np.array([[year, km_driven, fuel, seller_type, transmmn, owner, mileage, engine, max_power, seats, brand]])
     input = pd.DataFrame(input,columns=['year','km_driven','fuel','seller_type','transmission','owner','mileage','engine','max_power','seats','brand'])
     y_pred = pipe.predict(input)
     st.header("Rs. " + str(np.round(y_pred[0])))
