@@ -36,4 +36,7 @@ if st.button('Predict Price'):
     input = np.array([[year, km_driven, fuel, seller_type, transmmn, owner, mileage, engine, max_power, seats, brand]])
     input = pd.DataFrame(input,columns=['year','km_driven','fuel','seller_type','transmission','owner','mileage','engine','max_power','seats','brand'])
     y_pred = pipe.predict(input)
-    st.header("Rs. " + str(np.round(y_pred[0])))
+    if(y_pred<0):
+        st.subheader("**Oops..!! Something went wrong. Please correct the fields and try again...**")
+    else:
+        st.header("Rs. " + str(np.round(y_pred[0])))
